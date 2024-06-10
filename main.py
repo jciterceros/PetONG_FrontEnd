@@ -5,8 +5,10 @@ from flask import Flask, render_template
 import json
 from urllib import request
 import os
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 n_point_api = "https://api.npoint.io/e6b1dd077c2a1f6b50eb"
 my_email = os.environ.get('MY_EMAIL')
@@ -127,4 +129,4 @@ def login():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5001, debug=True)
